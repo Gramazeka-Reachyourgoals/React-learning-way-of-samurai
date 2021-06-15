@@ -14,3 +14,7 @@
 		'header header header'
 		'nav main main';
 }
+.app-main {
+	grid-area: main;
+	background: blue;
+}

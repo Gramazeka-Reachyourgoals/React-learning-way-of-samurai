@@ -1,6 +1,6 @@
-import React from 'react';
-import s from './MyPosts.module.css';
-import Post from './Post/Post';
+import React from "react";
+import s from "./MyPosts.module.css";
+import Post from "./Post/Post";
 
 const MyPosts = () => {
 	return (
@@ -12,15 +12,11 @@ const MyPosts = () => {
 				<button>Remove</button>
 			</div>
 			<div className={s.posts}>
-				<Post/>
-				<Post/>
-				<Post/>
-				<Post/>
-				<Post/>
-				<Post/>
+				<Post message='How are you?' likesCounter='7'/>
+				<Post message="How u doin'?" likesCounter='34'/>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 export default MyPosts;
