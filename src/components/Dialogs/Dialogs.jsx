@@ -3,7 +3,7 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-const Dialogs = ({state}) => {	
+const Dialogs = ({state, addPost}) => {	
 	let dialogsElements = state.dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
 	let messagesElements = state.messages.map(el => <Message text={el.message}/>);
 
