@@ -94,7 +94,6 @@ export const addPost = (postMessage) => {
 
 	state.profilePage.postsData.push(newPost);
 	rerenderEntireTree(state, addPost);
-	debugger;
 }
 
 export default state;

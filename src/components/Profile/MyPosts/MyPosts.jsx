@@ -10,6 +10,7 @@ const MyPosts = ({postsData, addPost}) => {
 	const addPostLocal = () => {
 		let text = newPostElement.current.value;
 		addPost(text);
+		newPostElement.current.value = '';
 	}
 
 	return (
