@@ -12,3 +12,22 @@
 .item a.active {
 	color: red;
 }
+
+.friendsList {
+	display: flex;
+	justify-content: space-between;
+}
+
+.friend {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.friend .circle {
+	height: 40px;
+	width: 40px;
+	background: yellow;
+	border-radius: 50%;
+}

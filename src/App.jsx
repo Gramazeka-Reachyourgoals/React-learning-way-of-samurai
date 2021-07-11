@@ -7,20 +7,18 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 
-const App = () => {
-    return (
-		<BrowserRouter>
-			<div className='app'>
-				<Header/>
-				<Navbar/>
-				<main className='app-main'>
-					<Route path='/profile' component={Profile}/>
-					<Route /* exact  */path='/dialogs' component={Dialogs}/>
-					<Route path='/news' component={News}/>
-					<Route path='/music' component={Music}/>
-				</main>
-			</div>
-		</BrowserRouter>
+const App = ({state}) => {
+	return (
+		<div className='app'>
+			<Header/>
+			<Navbar state={state.sidebar}/>
+			<main className='app-main'>
+				<Route path='/profile' render={() => <Profile state={state.profilePage}/>}/>
+				<Route path='/dialogs' render={() => <Dialogs state={state.dialogsPage}/>}/>
+				<Route path='/news' render={() => <News/>}/>
+				<Route path='/music' render={() => <Music/>}/>
+			</main>
+		</div>
     );
 };
 
