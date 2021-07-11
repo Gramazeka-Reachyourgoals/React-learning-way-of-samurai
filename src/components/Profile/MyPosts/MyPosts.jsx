@@ -2,15 +2,18 @@ import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = ({postsData, addPost}) => {
+const MyPosts = ({postsData, newPostText, addPost, updateNewPostText}) => {
 	let postsElements = postsData.map(el => <Post message={el.message} likesCounter={el.likesCounter}/>);
 
 	const newPostElement = React.createRef();
 
 	const addPostLocal = () => {
+		addPost();
+	}
+
+	let onPostChange = () => {
 		let text = newPostElement.current.value;
-		addPost(text);
-		newPostElement.current.value = '';
+		updateNewPostText(text);
 	}
 
 	return (
@@ -18,7 +21,7 @@ const MyPosts = ({postsData, addPost}) => {
 			<h3>My posts</h3>
 			<div>
 				<div>
-					<textarea ref={newPostElement}></textarea>
+					<textarea ref={newPostElement} value={newPostText} onChange={onPostChange}/>
 				</div>
 				<button onClick={addPostLocal}>Add post</button>
 				<button>Remove</button>
