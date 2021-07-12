@@ -4,11 +4,11 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 
-const App = ({state, addPost, updateNewPostText}) => {
+const App = ({state, addPost, updateNewPostText, addMessage, updateNewMessageText}) => {
 	return (
 		<div className='app'>
 			<Header/>
@@ -19,7 +19,9 @@ const App = ({state, addPost, updateNewPostText}) => {
 					addPost={addPost} 
 					updateNewPostText={updateNewPostText}/>}/>
 				<Route path='/dialogs' render={() => <Dialogs 
-					state={state.dialogsPage}/>}/>
+					dialogsPage={state.dialogsPage}
+					addMessage={addMessage}
+					updateNewMessageText={updateNewMessageText}/>}/>
 				<Route path='/news' render={() => <News/>}/>
 				<Route path='/music' render={() => <Music/>}/>
 			</main>

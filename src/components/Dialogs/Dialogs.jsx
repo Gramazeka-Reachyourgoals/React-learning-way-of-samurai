@@ -3,15 +3,19 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-const Dialogs = ({state, addPost}) => {	
-	let dialogsElements = state.dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
-	let messagesElements = state.messages.map(el => <Message text={el.message}/>);
+const Dialogs = ({dialogsPage, addMessage, updateNewMessageText}) => {
+	let dialogsElements = dialogsPage.dialogs.map(el => <DialogItem name={el.name} id={el.id}/>);
+	let messagesElements = dialogsPage.messages.map(el => <Message text={el.message}/>);
 
 	const inputMessageText = React.createRef();
 
-	const addMessage = () => {
-		let messageText = inputMessageText.current.value;
-		alert(messageText)
+	const addMessageLocal = () => {
+		addMessage()
+	}
+
+	const onMessageChange = () => {
+		let text = inputMessageText.current.value;
+		updateNewMessageText(text);
 	}
 
 	return (
@@ -24,8 +28,8 @@ const Dialogs = ({state, addPost}) => {
 				{messagesElements}
 			</div>
 			<div className={s.writeMessage}>
-				<textarea ref={inputMessageText}></textarea>
-				<button onClick={addMessage}>Add message</button>
+				<textarea ref={inputMessageText} value={dialogsPage.newMessageText} onChange={onMessageChange}/>
+				<button onClick={addMessageLocal}>Add message</button>
 			</div>
 		</div>
 	)

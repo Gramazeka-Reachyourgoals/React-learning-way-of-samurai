@@ -67,7 +67,8 @@ let state = {
 				id: 5,
 				name: 'LuxuryBurg'
 			}
-		]
+		],
+		newMessageText: 'Type your text here...'
 	},
 	sidebar: {
 		friendsList: [{
@@ -97,12 +98,28 @@ export const addPost = () => {
 
 	state.profilePage.postsData.push(newPost);
 	state.profilePage.newPostText = '';
-	rerenderEntireTree(state, addPost, updateNewPostText);
+	rerenderEntireTree(state);
 }
 
 export const updateNewPostText = (newText) => {
 	state.profilePage.newPostText = newText;
-	rerenderEntireTree(state, addPost, updateNewPostText);
+	rerenderEntireTree(state);
+}
+
+export const addMessage = () => {
+	let newMessage = {
+		id: 6,
+		message: state.dialogsPage.newMessageText
+	};
+
+	state.dialogsPage.messages.push(newMessage);
+	state.dialogsPage.newMessageText = '';
+	rerenderEntireTree(state);
+}
+
+export const updateNewMessageText = (newMessage) => {
+	state.dialogsPage.newMessageText = newMessage;
+	rerenderEntireTree(state);
 }
 
 export default state;
